@@ -19,9 +19,6 @@
   <target name="jar" depends="compile" description="create jar file">
     <jar destfile="wordcount-1.0.jar">
       <fileset dir="classes" includes="**/*.class"/>
-      <manifest>
-        <attribute name="Main-Class" value="WordCount" />
-      </manifest>
     </jar>
   </target>
 </project>
