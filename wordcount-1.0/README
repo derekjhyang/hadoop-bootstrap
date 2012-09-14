@@ -1,6 +1,0 @@
-WordCount 1.0 example
----------------------
-
-1. ant jar
-2. put the files to the hdfs
-3. hadoop jar wordcount-1.0.jar org.halish.hadoop.wordcount.WordCount /path/to/input /path/to/output
