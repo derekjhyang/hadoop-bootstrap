@@ -20,6 +20,8 @@ Vagrant::Config.run do |config|
       chef.add_recipe("apt")
       chef.add_recipe("openssh")
 
+      chef.add_recipe("hadoop")
+
     end
   end
 end
