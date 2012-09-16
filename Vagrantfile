@@ -18,7 +18,7 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = "chef/cookbooks"
 
       chef.add_recipe("apt")
-      # chef.add_recipe("openssl")
+      chef.add_recipe("openssh")
 
     end
   end
