@@ -7,3 +7,5 @@ build
 chefcookbooks/opscode-*
 chef/cookbooks/opscode-*
 chef/cookbooks/*.zip
+
+.vagrant

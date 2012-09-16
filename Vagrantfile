@@ -8,7 +8,7 @@ Vagrant::Config.run do |config|
   #config.vm.share_folder "ook-home", "/ook", "../"
 
   config.vm.define :hdp1 do |config|
-    config.vm.box = ""
+    config.vm.box = "hdp"
     config.vm.network :hostonly, '33.33.33.10'
     config.vm.customize do |vm|
       vm.memory_size = 1024
@@ -18,7 +18,7 @@ Vagrant::Config.run do |config|
       chef.cookbooks_path = "chef/cookbooks"
 
       chef.add_recipe("apt")
-      chef.add_recipe("openssl")
+      # chef.add_recipe("openssl")
 
     end
   end
