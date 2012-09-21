@@ -1,11 +1,8 @@
 .gradle
-
 *.sublime-project
-
 *.sublime-workspace
+
 build
-chefcookbooks/opscode-*
-chef/cookbooks/opscode-*
-chef/cookbooks/*.zip
+chef/cookbooks/opscode/*
 
 .vagrant

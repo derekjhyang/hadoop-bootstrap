@@ -1,3 +1,36 @@
+/*
+ * Wrapper task
+ * ============
+ * 
+ * Use it if you don't have Gradle installed localy. Just run gradlew(.bat for 
+ * Windows).
+ *
+ */
 task wrapper(type: Wrapper) {
 	gradleVersion = '1.2'
+}
+
+/*
+ * Download task
+ * =============
+ *
+ * Downloads the task from given location to the destination and unzips it
+ */
+task downloadCookbookSSH(type: Copy) {
+	ant.get(
+		src:'https://github.com/opscode-cookbooks/openssh/zipball/master',
+		dest: 'chef/cookbooks/opscode/openssh.zip',
+		verbose: true)
+
+	from(zipTree('chef/cookbooks/opscode/openssh.zip')) {
+		eachFile { details ->
+			details.path = details.path.substring(details.relativePath.segments[0].length())
+		}
+	}
+	into 'chef/cookbooks/opscode/openssh'
+}
+
+task cleanCookbookSSH << {
+	delete 'chef/cookbooks/opscode/openssh.zip'
+	delete 'chef/cookbooks/opscode/openssh/opscode-cookbooks-openssh-4421f0e'
 }
