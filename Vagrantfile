@@ -11,15 +11,16 @@ Vagrant::Config.run do |config|
     config.vm.box = "hdp"
     config.vm.network :hostonly, '33.33.33.10'
     config.vm.customize do |vm|
-      vm.memory_size = 1024
+      vm.memory_size = 2048
     end
 
     config.vm.provision :chef_solo do |chef|
-      chef.cookbooks_path = "chef/cookbooks"
+      chef.cookbooks_path = ["chef/cookbooks/opscode", "chef/cookbooks/my"]
 
-      chef.add_recipe("apt")
+      # opscode cookbooks
       chef.add_recipe("openssh")
 
+      # my cookbooks
       chef.add_recipe("hadoop")
 
     end

@@ -10,12 +10,6 @@ task wrapper(type: Wrapper) {
 	gradleVersion = '1.2'
 }
 
-/*
- * Download task
- * =============
- *
- * Downloads the task from given location to the destination and unzips it
- */
 task downloadCookbookSSH(type: Copy) {
 	ant.get(
 		src:'https://github.com/opscode-cookbooks/openssh/zipball/master',
