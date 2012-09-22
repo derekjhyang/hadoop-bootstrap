@@ -6,3 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+user "hduser" do
+  comment "Hadoop User"
+  system false
+  shell "/bin/bash"
+end
+
+group "hdgroup" do
+	members ["hduser"]
+	append true
+end
