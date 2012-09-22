@@ -10,6 +10,7 @@
 user "hduser" do
   comment "Hadoop User"
   system false
+  password "$1$Q5YyJZpE$VePKWkZjH0RUq9L2AUx/I/"
   shell "/bin/bash"
 end
 

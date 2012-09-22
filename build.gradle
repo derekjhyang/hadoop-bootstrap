@@ -28,3 +28,22 @@ task cleanCookbookSSH << {
 	delete 'chef/cookbooks/opscode/openssh.zip'
 	delete 'chef/cookbooks/opscode/openssh/opscode-cookbooks-openssh-4421f0e'
 }
+
+task downloadCookbookJava(type: Copy) {
+	ant.get(
+		src:'https://github.com/opscode-cookbooks/java/zipball/master',
+		dest: 'chef/cookbooks/opscode/java.zip',
+		verbose: true)
+
+	from(zipTree('chef/cookbooks/opscode/java.zip')) {
+		eachFile { details ->
+			details.path = details.path.substring(details.relativePath.segments[0].length())
+		}
+	}
+	into 'chef/cookbooks/opscode/java'
+}
+
+task cleanCookbookJava << {
+	delete 'chef/cookbooks/opscode/java.zip'
+	delete 'chef/cookbooks/opscode/java/opscode-cookbooks-java-*'
+}

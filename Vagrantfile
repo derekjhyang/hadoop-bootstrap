@@ -17,8 +17,22 @@ Vagrant::Config.run do |config|
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = ["chef/cookbooks/opscode", "chef/cookbooks/my"]
 
+      chef.json = {
+          :java => {
+            :jdk => {
+              "7" => {
+                :x86_64 => {
+                  :url => "http://dl.dropbox.com/u/9035816/jdk-7u7-linux-x64.tar.gz"
+                }
+              }
+            },
+            :jdk_version => "7"
+          }
+      }
+
       # opscode cookbooks
       chef.add_recipe("openssh")
+      chef.add_recipe("java::oracle")
 
       # my cookbooks
       chef.add_recipe("hadoop")
